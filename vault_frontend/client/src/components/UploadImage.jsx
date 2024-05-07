@@ -11,12 +11,12 @@ const UploadImage = ({reloadEffect}) => {
     const [loading,setLoading]=useState(false);
 
     const uploadImageHash=async(ipfsHash)=>{
-       // const tx = await contractInstance.uploadFile(selectedAccount,ipfsHash)
         await toast.promise(contractInstance.uploadFile(selectedAccount,ipfsHash),{
             loading:"Transaction is pending",
-            success:"Transaction is successful",
+            success:"Transaction is successful", 
             error:"Transaction failed"
-        })
+          })
+          toast.success("image uploaded")
     }
     const handleImageUpload = async()=>{
         try {
@@ -33,7 +33,7 @@ const UploadImage = ({reloadEffect}) => {
             }
             const res = await axios.post(url,formData,config);
 
-            toast.success("image uploaded")
+            //toast.success("image uploaded")
             await uploadImageHash(res.data.ipfsHash)  
             setLoading(false)
             reloadEffect()
@@ -47,9 +47,9 @@ const UploadImage = ({reloadEffect}) => {
 
     return ( 
     <div className="h-full w-screen flex flex-col justify-center items-center gap-6">
-    <p className="font-semibold md:text-[24px]">
-      Upload file with Web3s Security
-    </p>
+    <p className="text-xl font-semibold text-blue-600 transform transition duration-300 hover:scale-110">
+        WELCOME TO YOUR SECURE SNAP GALLERY
+      </p>
     <div className="w-full flex justify-center items-center">
       <input
         type="file"
@@ -68,8 +68,8 @@ const UploadImage = ({reloadEffect}) => {
         {loading ? "Uploading..." : "Upload"}
       </button>
     ) : (
-      <p className="text-[20px] font-semibold text-red-500">
-        Choose a File To Upload
+      <p className="text-lg font-semibold text-purple-600 hover:text-green-600 transform transition duration-300 hover:scale-110">
+        
       </p>
     )}
 
@@ -79,11 +79,4 @@ const UploadImage = ({reloadEffect}) => {
  
 export default UploadImage;
 
-         // await toast.promise(axios.post(url,formData),{
-            //     loading:"Image is uploading",
-            //     success:async(res)=>{
-            //         await uploadImageHash(res.data.ipfsHash) 
-            //         return "Image upload successful"
-            //     },
-            //     error:"Image Upload failed"
-            // })
+        

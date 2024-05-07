@@ -5,7 +5,7 @@ import {toast} from "react-hot-toast"
 import { CircleArrowLeft,CircleArrowRight } from "lucide-react";
 const GetImage = ({reload}) => {
     const [currentPage,setCurrentPage]=useState(1)
-    const [imagePerPage,setImagePerPage]=useState(2);
+    const [imagePerPage,setImagePerPage]=useState(3);
     const [images,setImages]=useState([])
     const [loading,setLoading]=useState(false)
     const {web3State}=useWeb3Context()

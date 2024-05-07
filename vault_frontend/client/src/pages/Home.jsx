@@ -9,7 +9,7 @@ const Home = () => {
     const reloadEffect=()=>{
       setReload(!reload)
     }
-return (
+    return (
     <div className="relative h-full w-screen flex flex-col justify-center items-center mt-8 px-4 ">
       <UploadImage reloadEffect={reloadEffect}/>
       <GetImage reload={reload} />

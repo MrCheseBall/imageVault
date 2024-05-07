@@ -16,7 +16,7 @@ app.use('/api',authenticationRoute);
 app.use('/api',uploadImageRoute);
 app.use('/api',getImageRoute)
 
-
+ 
 async function serverStart(){
     try {
         await connectDB(MONGODB_URL)
